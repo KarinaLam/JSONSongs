@@ -1,0 +1,62 @@
+[
+  {
+    "title": "High Hopes",
+    "artist": "Panic! At The Disco",
+    "genre": ["Pop"],
+    "year": 2018
+  },
+  {
+    "title": "Sofia",
+    "artist": "Alvaro Soler",
+    "genre": ["Pop"],
+    "year": 2016
+  },
+  {
+    "title": "Heaven",
+    "artist": "Avicii",
+    "genre": ["EDM"],
+    "year": 2019
+  },
+  {
+    "title": "You should be sad",
+    "artist": "Halsey",
+    "genre": ["Alternative"],
+    "year": 2020
+  },
+  {
+    "title": "So Am I",
+    "artist": "Ava Max",
+    "genre": ["Pop"],
+    "year": 2020
+  },
+  {
+    "title": "2002",
+    "artist": "Anne-marie",
+    "genre": ["Pop"],
+    "year": 2018
+  },
+  {
+    "title": "Stitches",
+    "artist": "Shawn Mendes",
+    "genre": ["Pop"],
+    "year": 2015
+  },
+  {
+    "title": "Play That Song",
+    "artist": "Train",
+    "genre": ["Pop"],
+    "year": 2016
+  },
+  {
+    "title": "Ophelia",
+    "artist": "The Lumineers",
+    "genre": ["Indie"],
+    "year": 2016
+  },
+  {
+    "title": "When the Bones Are Good",
+    "artist": "Ashley Price",
+    "genre": ["Pop"],
+    "year": 2020
+  }
+]
