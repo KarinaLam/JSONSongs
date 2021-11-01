@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Song Display</title>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <script language="javascript">
+      $.get(
+        "https://karinalam.github.io/JSONSongs/songs.json",
+        function start(data) {
+          str = JSON.stringify(data);
+          JSON_String(str);
+          displaySongs(data);
+        }
+      );
+      function displaySongs(data) {
+        strHTML = "<ul>";
+        data.forEach(function (song) {
+          strHTML +=
+            "<li>" +
+            song.title +
+            "<ul><li>" +
+            song.artist +
+            "<li>" +
+            song.genre +
+            "<li>" +
+            song.year +
+            "</ul></li>" +
+            "</li>";
+        });
+        strHTML += "</ul>";
+        document.getElementById("output2").innerHTML = strHTML;
+      }
+
+      function JSON_String(songString) {
+        document.getElementById("output1").innerHTML = songString + "<br/>";
+      }
+
+      genres = ["Pop", "EDM", "Alternative", "Indie"];
+
+      function pickGenre() {
+        document.getElementById("output3").innerHTML =
+          "<select name='itemSelect" + x + "'>";
+        genres.forEach(function (genre) {
+          document.getElementById("output3").innerHTML =
+            "<option>" + genre + "</option>";
+        });
+        document.getElementById("output3").innerHTML = "</select>";
+      }
+      start(data);
+    </script>
+
+    <h1>All songs as a string and in a user-friendly format:</h1>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <h1>Filter by Song Genre:</h1>
+    <p id="output3"></p>
+    <p id="output4"></p>
+
+    <form id="fm" name="data" method="get" onsubmit="return displayByGenre()">
+      <label for="genres">Choose a genre:</label>
+      <select name="genres" id="genres">
+        <option value="Pop">Pop</option>
+        <option value="EDM">EDM</option>
+        <option value="Alternative">Alternative</option>
+        <option value="Indie">Indie</option>
+      </select>
+      <br /><br />
+      <input type="submit" value="Find" />
+    </form>
+
+    <script language="javascript">
+      $("#fm").submit(function (e) {
+        e.preventDefault();
+      });
+
+      function displayByGenre() {
+        $.get(
+          "https://karinalam.github.io/JSONSongs/songs.json",
+          function (data) {
+            var chosen = $("#genres").val();
+            strHTML = "<ul>";
+
+            data.forEach(function (song) {
+              if (chosen == song.genre) {
+                strHTML +=
+                  "<li>" +
+                  song.title +
+                  "<ul><li>" +
+                  song.artist +
+                  "<li>" +
+                  song.genre +
+                  "<li>" +
+                  song.year +
+                  "</ul></li>" +
+                  "</li>";
+              }
+            });
+            strHTML += "</ul>";
+            document.getElementById("output4").innerHTML = strHTML;
+          }
+        );
+      }
+    </script>
+  </body>
+</html>
